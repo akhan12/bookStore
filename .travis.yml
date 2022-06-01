@@ -5,6 +5,5 @@ jdk:
   - openjdk8
 deploy:
   provider: heroku
-  api_key:
-    secure: a6080e79-367c-4bb9-be7b-a2cf879d634c
+  api_key: a6080e79-367c-4bb9-be7b-a2cf879d634c
   app: "book-demo-store23"
