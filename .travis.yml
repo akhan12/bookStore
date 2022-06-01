@@ -1,8 +1,14 @@
 language: java
+
 before_install:
   – chmod +x gradlew
+
 jdk:
   - openjdk8
+
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
+
 deploy:
   provider: heroku
   api_key: a6080e79-367c-4bb9-be7b-a2cf879d634c
