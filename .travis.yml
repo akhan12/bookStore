@@ -3,3 +3,7 @@ before_install:
   – chmod +x gradlew
 jdk:
   - openjdk8
+deploy:
+  provide: heroku
+  api_key: $HEROKU_TOKEN
+  app: "book-demo-store23"
