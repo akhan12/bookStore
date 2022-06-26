@@ -25,7 +25,7 @@ public class BookControllerTest {
 
     @Mock
     private BookService bookService;
-
+/*
     @Test
     void shouldReturnBookDtoListWhenGetBooksCalled(){
         List<BookDto> bookDtos = new ArrayList<>();
@@ -36,7 +36,7 @@ public class BookControllerTest {
         assertThat(books.getBody().size()).isEqualTo(1);
     }
 
-
+*/
     private BookDto getBookDto(){
         return BookDto.builder()
                 .title("test title")

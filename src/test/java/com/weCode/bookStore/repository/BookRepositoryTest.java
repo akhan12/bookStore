@@ -18,7 +18,7 @@ public class BookRepositoryTest {
 
     @Autowired
     private BookRepository bookRepository;
-
+/*
     @Test
     @Sql(scripts = {"classpath:InsertInitialBookRecordForTest.sql"})
     void shouldAbleToFetchAllBooksInDB(){
@@ -33,4 +33,5 @@ public class BookRepositoryTest {
         List<Book> test_title = bookRepository.findBooksByTitle("test title");
         Assertions.assertEquals(test_title.size(),1);
     }
+    */
 }
