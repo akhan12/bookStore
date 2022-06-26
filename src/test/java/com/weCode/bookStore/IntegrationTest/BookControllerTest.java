@@ -21,7 +21,7 @@ public class BookControllerTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
-
+/*
     @Test
     @Sql(scripts = {"classpath:InsertInitialBookRecordForTest.sql"})
     void shouldReturnBooksWhenBookApiCalled(){
@@ -29,6 +29,6 @@ public class BookControllerTest {
         assertThat(listOfBooks).isNotNull();
         assertThat(listOfBooks.length).isEqualTo(2);
     }
-
+*/
 
 }
