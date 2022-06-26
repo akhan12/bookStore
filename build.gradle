@@ -3,6 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
+apply plugin: 'jacoco' //Jacoco apply
 
 group = 'com.weCode'
 version = '0.0.1-SNAPSHOT'
@@ -22,10 +23,17 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.flywaydb:flyway-core:8.5.12' //for database migration
+	implementation 'org.modelmapper:modelmapper:2.3.0'
+	implementation 'io.springfox:springfox-swagger2:2.9.2' //swagger
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	implementation 'org.postgresql:postgresql'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
-	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok' //getters setters etc
+	testImplementation 'org.mockito:mockito-core' //mock library
+	testImplementation 'org.assertj:assertj-core'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
@@ -33,3 +41,19 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+//read up on this
+jacocoTestCoverageVerification{
+	violationRules{
+		rule{
+			limit{
+				counter = 'LINE'
+				value = 'COVEREDRATIO'
+				minimum = 0.9
+			}
+		}
+	}
+}
+
+test.finalizedBy jacocoTestReport
+
+check.dependsOn jacocoTestCoverageVerification
